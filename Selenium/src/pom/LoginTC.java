@@ -1,0 +1,30 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+public class LoginTC 
+{
+	@Test
+	public void login()
+	{
+		WebDriver driver=new  FirefoxDriver();
+		
+		LoginPAge lp=PageFactory.initElements(driver, LoginPAge.class);
+		AdminPage ap=PageFactory.initElements(driver, AdminPage.class);
+		driver.get(lp.url);
+		driver.manage().window().maximize();
+		
+		lp.org_Login(lp.u, lp.p);
+		Sleeper.sleepTightInSeconds(5);
+		ap.welcomeclick();
+		ap.logoutclick();
+		
+		driver.close();
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package testNG;
+
+import org.testng.annotations.DataProvider;
+
+public class DataproviderEg
+{
+	@DataProvider
+	public Object[][] data()
+	{
+		Object[][] d=new Object[3][2];
+		d[0][0]="firefox";
+		d[0][1]="http://google.com";
+		
+		
+	}
+
+}
